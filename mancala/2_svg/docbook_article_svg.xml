@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+                         "http://docbook.org/xml/4.5/docbookx.dtd">
+<article>
+    <title>XML-Technologien, Übungsblatt 2: SVG - Mancala-Spielbrett</title>
+    <sect1>
+        <title>Mancala-Variante</title>
+        <para>Kalaha</para>
+    </sect1>
+    <sect1>
+        <title>Graphische Komponenten</title>
+        <sect2>
+            <title>Spielbrett mit Verteilung der Spielsteine</title>
+            <para>Verteilungen der Spielsteine</para>
+            <para>Parameter für beliebige Verteilung</para>
+            <para>Farbe Hauptmulden</para>
+            <para>&amp;def> und &amp;use></para>
+            <para>Beschreibung Aufbau</para>
+            <para>Erklärung warum der Aufbau logisch und klar ist: redundanzfrei, logisch, leicht
+                veränderbar</para>
+            <para>Entitäten?</para>
+            <para>Parameter für Darstellung<itemizedlist>
+                    <listitem>
+                        <para>verschiedenes Material Spielbrett</para>
+                    </listitem>
+                    <listitem>
+                        <para>einmal quadratisches Feld, einmal klassische Form</para>
+                    </listitem>
+                    <listitem>
+                        <para>Farbe Spielsteine</para>
+                    </listitem>
+                    <listitem>
+                        <para>Farbe Spieler = Farbe Hauptmulden</para>
+                    </listitem>
+                </itemizedlist></para>
+            <para>Parameter für Spielvariante<itemizedlist>
+                    <listitem>
+                        <para>Anzahl Samen pro Mulde</para>
+                    </listitem>
+                </itemizedlist></para>
+        </sect2>
+        <sect2>
+            <title>Weitere Komponenten: z. B. Buttons, Markierung wer am Zug ist, Logo?</title>
+            <sect3>
+                <title>Buttons</title>
+                <para>Beschreibung<itemizedlist>
+                        <listitem>
+                            <para>Neues Spiel</para>
+                        </listitem>
+                        <listitem>
+                            <para>Zug zurück nehmen</para>
+                        </listitem>
+                    </itemizedlist></para>
+            </sect3>
+            <sect3>
+                <title>Markierung wer am Zug ist</title>
+                <para>Beschreibung<itemizedlist>
+                        <listitem>
+                            <para>Namen, Farbe</para>
+                        </listitem>
+                    </itemizedlist></para>
+            </sect3>
+            <sect3>
+                <title>Logo</title>
+                <para>Beschreibung</para>
+            </sect3>
+        </sect2>
+    </sect1>
+</article>
