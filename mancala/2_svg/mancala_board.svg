@@ -7,4 +7,22 @@
     <circle cx="650" cy="50" r="40" stroke="green" stroke-width="2" fill="yellow" />
     
     <rect x="200" y="200" height="40" width="100" fill="green"/>
+    
+    <defs>
+        <rect id="anim-rect"
+            x="-25" y="-25"
+            width="90" height="90"
+            fill="#29e" >
+            
+            <animate
+                attributeName="fill"
+                values="#29e; #4e4; #f40; #29e"
+                dur="6s"
+                repeatCount="indefinite" />
+        </rect>
+    </defs>
+    
+    <use href="#anim-rect" transform="translate(100 50)"/>
+    <use href="#anim-rect" transform="translate(200 50)"/>
+    <use href="#anim-rect" transform="translate(300 50)"/>
 </svg>
