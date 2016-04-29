@@ -41,26 +41,42 @@
         <sect2>
             <title>Darstellung der Komponenten</title>
             <sect3>
-                <title>Spielbrett</title>
-                <para>Das Material des Spielbrett besteht aus ….. und besitzt  ????</para>
+                <title>Spielbrett und Spielsteine</title>
+                <para><emphasis>Das Material des Spielbrett besteht aus ?. </emphasis></para>
+                <para><emphasis>Spielsteine. Farbe? Form? Material?</emphasis></para>
             </sect3>
             <sect3>
                 <title>Mulden und Kalaha</title>
-                <para>Die 12 Spielmulden sind in rechteckiger/ runder Form ….</para>
-                <para>Farbe und Anordnung und Gewinnmulden ??????</para>
+                <para><emphasis role="bold">1.Version:</emphasis></para>
+                <para>Der Form des klassischen Kalaha gleichend, sind 6 Spielmulden des einen
+                    Spielers den anderen 6 Spielmulden des gegnerischen Spielers gegenüber gereiht.
+                    Die 12 Spielmulden besitzen eine rechteckige Form und haben alle die gleiche
+                    Größe. </para>
+                <para><emphasis>Farbe?</emphasis></para>
+                <para>Das Spielbrett endet auf beiden Seiten mit je einer rund geformten
+                    Gewinnmulde. Beide Gewinnmulden sind gleich groß.</para>
+                <para><emphasis>Farbe?</emphasis></para>
+                <para><emphasis role="bold">2.Version:</emphasis></para>
+                <para>Abweichend von der klassichen Form, sind in der 2.Version des Kalaha, die 12
+                    Spielmulden um die Gewinnmulden angeordnet. Die Spielmulden besitzen eine
+                    quadratische Form, wobei die beiden Gewinnmulden jeweils eine ovale Form
+                    annehmen. </para>
+                <para><emphasis>Farbe?</emphasis></para>
             </sect3>
             <sect3>
                 <title>Button</title>
-                <para>Form der Button und ihre Funktion und Darstellung und Anordnung ???????</para>
+                <para><emphasis>Form der Button und ihre Funktion sowie Darstellung und Anordnung
+                        ?</emphasis></para>
             </sect3>
             <sect3>
                 <title>Logo </title>
-                <para>Form des Logo und ihre Funktion sowie Darstellung und Anordnung ?????</para>
+                <para><emphasis>Form des Logo und ihre Funktion sowie Darstellung und Anordnung
+                        ?</emphasis></para>
             </sect3>
         </sect2>
         <sect2>
-            <title>????</title>
-            <para>Der Aufbau ist logisch.….???????</para>
+            <title>Bewertung</title>
+            <para/>
         </sect2>
     </sect1>
 </article>
