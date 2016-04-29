@@ -5,65 +5,62 @@
     <title>XML-Technologien, Übungsblatt 2: SVG - Mancala-Spielbrett</title>
     <sect1>
         <title>Mancala-Variante</title>
-        <para>Kalaha</para>
+        <para>Das Strategiespiel Kalaha, auch Steinchenspiel genannt, ist eine Variante der
+            Mancala-Familie. Mancala ist ein Oberbegriif für Brettspiele, die meist von 2 Personen
+            gespielt werden. Charakteristisch ist, dass bei diesen Brettspielen, in Spielmulden
+            liegende Steine nach bestimmten Regeln umverteilt werden. Das klassische Kalaha
+            Spielbrett besteht aus 2 Muldenreihen mit je 6 Spielmulden. Das Spielbrett endet auf
+            beiden Seiten mit einer Gewinnmulde, auch Kalaha genannt. Die Spielmulden können je nach
+            Spielvariation entweder mit je 3 4, 5 oder 6 Spielsamen gefüllt werden. </para>
+        <sect2>
+            <title> Spielregeln des Kalaha </title>
+            <para>Zu Beginn des Spiels werden alle Spielmulden des Kalaha-Bretts mit je 3, 4, 5 oder
+                6 Spielsamen gefüllt. Der Spieler wählt eine seiner Spielmulden und verteilt all die
+                Spielsamen dieser Mulde gegen den Uhrzeigersinn in die darauf folgenden Mulden. In
+                jede Mulde legt der Spieler ein Samen und lässt dabei die Kalaha des Gegners aus.
+                Wenn der letzte Spielsamen in der eigenen Kalaha landet, dann erhält der Spieler
+                eine Extra-Runde. Eine Extra-Runde kann mehrmals hintereinander ausgeführt werden.
+                Wenn jedoch der letzte Spielsamen in der eigenen leeren Mulde landet und gegenüber
+                in der Mulde des gegnerischen Spielers ein oder mehrere Samen liegen, dann wird der
+                letzte Samen und all die Spielsamen der gegnerischen Mulde in die eigene Kalaha
+                gelegt. Das Spiel endet, wenn in einem Zug die Mulden eines Spielers leer sind.
+                Gewinner des Spiels ist, wer die meisten Spielsamen in seiner Kalaha hat.</para>
+        </sect2>
     </sect1>
     <sect1>
         <title>Graphische Komponenten</title>
         <sect2>
             <title>Spielbrett mit Verteilung der Spielsteine</title>
-            <para>Verteilungen der Spielsteine</para>
-            <para>Parameter für beliebige Verteilung</para>
-            <para>Farbe Hauptmulden</para>
-            <para>&amp;def> und &amp;use></para>
-            <para>Beschreibung Aufbau</para>
-            <para>Erklärung warum der Aufbau logisch und klar ist: redundanzfrei, logisch, leicht
-                veränderbar</para>
-            <para>Entitäten?</para>
-            <para>Parameter für Darstellung<itemizedlist>
-                    <listitem>
-                        <para>verschiedenes Material Spielbrett</para>
-                    </listitem>
-                    <listitem>
-                        <para>einmal quadratisches Feld, einmal klassische Form</para>
-                    </listitem>
-                    <listitem>
-                        <para>Farbe Spielsteine</para>
-                    </listitem>
-                    <listitem>
-                        <para>Farbe Spieler = Farbe Hauptmulden</para>
-                    </listitem>
-                </itemizedlist></para>
-            <para>Parameter für Spielvariante<itemizedlist>
-                    <listitem>
-                        <para>Anzahl Samen pro Mulde</para>
-                    </listitem>
-                </itemizedlist></para>
+            <para>Das Kalaha Spielbrett besteht aus insgesamt 12 Spielmulden d.h 6 Mulden pro
+                Spieler, 2 Gewinnmulden (Kalaha) und Spielsamen (Anzahl je nach Variation).
+                Zusätzlich wird das klassische Spielbrett mit dem Button "Neues Spiel" und "Zug
+                zurücknehmen" erweitert. Das Logo …...</para>
+            <para>Für das Kalaha-Spiel wird die Variante mit 6 Samen pro Mulde gewählt. Insgesamt
+                beträgt die Samenanzahl 72. </para>
         </sect2>
         <sect2>
-            <title>Weitere Komponenten: z. B. Buttons, Markierung wer am Zug ist, Logo?</title>
+            <title>Darstellung der Komponenten</title>
             <sect3>
-                <title>Buttons</title>
-                <para>Beschreibung<itemizedlist>
-                        <listitem>
-                            <para>Neues Spiel</para>
-                        </listitem>
-                        <listitem>
-                            <para>Zug zurück nehmen</para>
-                        </listitem>
-                    </itemizedlist></para>
+                <title>Spielbrett</title>
+                <para>Das Material des Spielbrett besteht aus ….. und besitzt  ????</para>
             </sect3>
             <sect3>
-                <title>Markierung wer am Zug ist</title>
-                <para>Beschreibung<itemizedlist>
-                        <listitem>
-                            <para>Namen, Farbe</para>
-                        </listitem>
-                    </itemizedlist></para>
+                <title>Mulden und Kalaha</title>
+                <para>Die 12 Spielmulden sind in rechteckiger/ runder Form ….</para>
+                <para>Farbe und Anordnung und Gewinnmulden ??????</para>
             </sect3>
             <sect3>
-                <title>Logo</title>
-                <para>Beschreibung</para>
+                <title>Button</title>
+                <para>Form der Button und ihre Funktion und Darstellung und Anordnung ???????</para>
             </sect3>
+            <sect3>
+                <title>Logo </title>
+                <para>Form des Logo und ihre Funktion sowie Darstellung und Anordnung ?????</para>
+            </sect3>
+        </sect2>
+        <sect2>
+            <title>????</title>
+            <para>Der Aufbau ist logisch.….???????</para>
         </sect2>
     </sect1>
 </article>
