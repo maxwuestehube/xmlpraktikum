@@ -1,3 +1,5 @@
+<!-- Authors: Meryem Özkaya, Alexandra Brandl, Max Wüstehube -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -99,6 +101,8 @@
     
     
     
+    <!--
+        
     <defs>
         <rect id="cube" width="45" height="45" fill="white" stroke="black" stroke-width="2" >
         </rect>
@@ -121,4 +125,6 @@
     <use xlink:href="#cube" x="235" y="370" />
     <use xlink:href="#cube" x="295" y="370" />
     <use xlink:href="#cube" x="355" y="370" />
+    
+    -->
 </svg>
