@@ -67,18 +67,21 @@
             </sect3>
             <sect3>
                 <title>Button</title>
-                <para><emphasis>Form der Button und ihre Funktion sowie Darstellung und Anordnung
-                        ?</emphasis></para>
+                <para><emphasis>Es gibt zwei Buttons: "Start new Game" und "Undo
+                    Move".</emphasis></para>
             </sect3>
             <sect3>
                 <title>Logo </title>
-                <para><emphasis>Form des Logo und ihre Funktion sowie Darstellung und Anordnung
-                        ?</emphasis></para>
+                <para><emphasis>Das Logo besteht aus einem schlichten Schriftzug.</emphasis></para>
             </sect3>
         </sect2>
         <sect2>
-            <title>Bewertung</title>
-            <para/>
+            <title>Code</title>
+            <para>Der Code ist mithilfe von "use" und "def" möglichst modular aufgegliedert. Die
+                einzelnen Komponenten des Spieles werden dadurch wieder verwendet und logisch
+                gekapselt.</para>
+            <para>Gleichzeitig bildet der Quelltext eine geeignete Ausgangsbasis für die Generierung
+                des Spielfelds aus Parametern dar.</para>
         </sect2>
     </sect1>
 </article>

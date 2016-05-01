@@ -106,37 +106,9 @@
         </g>
     </defs>
     
+    <!-- display Kalaha game -->
     <use xlink:href="#logo" x="0" y="0"></use>
     <use xlink:href="#button_new_game" x="0" y="40"></use>
     <use xlink:href="#button_undo_move" x="145" y="40"></use>
     <use xlink:href="#board" x="0" y="90"></use>
-    
-    
-    
-    <!--
-        
-    <defs>
-        <rect id="cube" width="45" height="45" fill="white" stroke="black" stroke-width="2" >
-        </rect>
-        <ellipse id="e1" rx="60" ry="20" fill="white" stroke="black" stroke-width="2,5"></ellipse>
-    </defs>
-    
-    <use xlink:href="#e1" x="290" y="450" />
-    <use xlink:href="#e1" x="310" y="510" />
-    
-    <use xlink:href="#cube" x="200" y="550" />
-    <use xlink:href="#cube" x="260" y="550" />
-    <use xlink:href="#cube" x="320" y="550" />
-    <use xlink:href="#cube" x="380" y="550" />
-    <use xlink:href="#cube" x="380" y="490" />
-    <use xlink:href="#cube" x="380" y="430" />
-    
-    <use xlink:href="#cube" x="175" y="490" />
-    <use xlink:href="#cube" x="175" y="430" />
-    <use xlink:href="#cube" x="175" y="370" />
-    <use xlink:href="#cube" x="235" y="370" />
-    <use xlink:href="#cube" x="295" y="370" />
-    <use xlink:href="#cube" x="355" y="370" />
-    
-    -->
 </svg>
