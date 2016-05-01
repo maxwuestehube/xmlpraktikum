@@ -2,24 +2,87 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns="http://www.w3.org/2000/svg" width="80%" height="100%">
-    <desc></desc>
-    <g alignment-baseline="baseline"></g>
-    <use xlink:href="#c1" x="70" y="150"  />
-    <use xlink:href="#c1" x="525" y="150" />
     
-    <use xlink:href="#r1" x="125" y="50"/>
-    <use xlink:href="#r1" x="125" y="160" />
-    <use xlink:href="#r1" x="185" y="50" />
-    <use xlink:href="#r1" x="185" y="160" />
-    <use xlink:href="#r1" x="245" y="50" />
-    <use xlink:href="#r1" x="245" y="160" />
-    <use xlink:href="#r1" x="305" y="50" />
-    <use xlink:href="#r1" x="305" y="160" />
-    <use xlink:href="#r1" x="365" y="50" />
-    <use xlink:href="#r1" x="365" y="160" />
-    <use xlink:href="#r1" x="425" y="50" />
-    <use xlink:href="#r1" x="425" y="160" />
+    <desc>an adaptable Kalaha board</desc>
     
+    <!-- definitioan of objects -->
+    <defs>
+        <g id="house">
+            <desc>a so-called Kalaha "house"</desc>
+            
+            <rect width="45" height="85"
+                fill="white" stroke="black" stroke-width="2" >
+            </rect>
+        </g>
+        
+        <g id="kalah">
+            <desc>a so-called Kalaha "Kalah"</desc>
+            
+            <circle r="40" stroke="black" stroke-width="2,5" fill="white" />
+        </g>
+        
+        <g id="seed">
+            <desc>a so-called Kalaha "seed"</desc>
+            
+            <circle r="4" stroke="blue" stroke-width="2,5" fill="blue" />
+        </g>
+        
+        <g id="board">
+            <desc>the actual Kalaha board, presented in traditional layout</desc>
+            
+            <!-- player one's houses -->
+            <use xlink:href="#house" x="95" y="0"></use>
+            <use xlink:href="#house" x="155" y="0"></use>
+            <use xlink:href="#house" x="215" y="0"></use>
+            <use xlink:href="#house" x="275" y="0"></use>
+            <use xlink:href="#house" x="335" y="0"></use>
+            <use xlink:href="#house" x="395" y="0"></use>
+            
+            <!-- player two's houses -->
+            <use xlink:href="#house" x="95" y="110"></use>
+            <use xlink:href="#house" x="155" y="110"></use>
+            <use xlink:href="#house" x="215" y="110"></use>
+            <use xlink:href="#house" x="275" y="110"></use>
+            <use xlink:href="#house" x="335" y="110"></use>
+            <use xlink:href="#house" x="395" y="110"></use>
+            
+            <!-- player one's kalah -->
+            <use xlink:href="#kalah" x="40" y="100"></use>
+            
+            <!-- player two's kalah -->
+            <use xlink:href="#kalah" x="495" y="100"></use>
+            
+            <!-- some seeds -->
+            <use xlink:href="#seed" x="15" y="85"></use>
+            <use xlink:href="#seed" x="25" y="110"></use>
+            <use xlink:href="#seed" x="40" y="105"></use>
+            <use xlink:href="#seed" x="50" y="100"></use>
+            <use xlink:href="#seed" x="100" y="10"></use>
+            <use xlink:href="#seed" x="120" y="15"></use>
+            <use xlink:href="#seed" x="170" y="15"></use>
+            <use xlink:href="#seed" x="230" y="50"></use>
+            <use xlink:href="#seed" x="230" y="150"></use>
+            <use xlink:href="#seed" x="235" y="25"></use>
+            <use xlink:href="#seed" x="240" y="145"></use>
+            <use xlink:href="#seed" x="245" y="35"></use>
+            <use xlink:href="#seed" x="285" y="155"></use>
+            <use xlink:href="#seed" x="345" y="35"></use>
+            <use xlink:href="#seed" x="410" y="150"></use>
+            <use xlink:href="#seed" x="485" y="100"></use>
+            <use xlink:href="#seed" x="495" y="100"></use>
+            <use xlink:href="#seed" x="510" y="110"></use>
+        </g>
+    </defs>
+    
+    <use xlink:href="#board" x="0" y="0"></use>
+    
+    
+    
+    <defs>
+        <rect id="cube" width="45" height="45" fill="white" stroke="black" stroke-width="2" >
+        </rect>
+        <ellipse id="e1" rx="60" ry="20" fill="white" stroke="black" stroke-width="2,5"></ellipse>
+    </defs>
     
     <use xlink:href="#e1" x="290" y="450" />
     <use xlink:href="#e1" x="310" y="510" />
@@ -37,23 +100,4 @@
     <use xlink:href="#cube" x="235" y="370" />
     <use xlink:href="#cube" x="295" y="370" />
     <use xlink:href="#cube" x="355" y="370" />
-    
-    
-    <defs>
-        <rect id="r1"
-            width="45" height="85"
-            fill="white" stroke="black" stroke-width="2" >
-        </rect>
-        
-        <circle id="c1" r="40" stroke="black" stroke-width="2,5" fill="white" />
-        
-        <rect id="cube" width="45" height="45" fill="white" stroke="black" stroke-width="2" >
-        </rect>
-        <ellipse id="e1" rx="60" ry="20" fill="white" stroke="black" stroke-width="2,5"></ellipse>
-    </defs>
-    
-    <!--use xlink:href="#r1" x="100" y="100"/>
-    <use xlink:href="#r1" x="150" y="150"/>
-    <use href="#anim-rect" transform="translate(200 50)"/>
-    <use href="#anim-rect" transform="translate(300 50)"/-->
 </svg>
