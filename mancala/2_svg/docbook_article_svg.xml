@@ -34,7 +34,7 @@
             <para>Das Kalaha Spielbrett besteht aus insgesamt 12 Spielmulden d.h 6 Mulden pro
                 Spieler, 2 Gewinnmulden (Kalaha) und Spielsamen (Anzahl je nach Variation).
                 Zusätzlich wird das klassische Spielbrett mit dem Button "Neues Spiel" und "Zug
-                zurücknehmen" erweitert. Das Logo …...</para>
+                zurücknehmen" erweitert. Ebenso gibt es ein Logo.</para>
             <para>Für das Kalaha-Spiel wird die Variante mit 6 Samen pro Mulde gewählt. Insgesamt
                 beträgt die Samenanzahl 72. </para>
         </sect2>
@@ -42,8 +42,10 @@
             <title>Darstellung der Komponenten</title>
             <sect3>
                 <title>Spielbrett und Spielsteine</title>
-                <para><emphasis>Das Material des Spielbrett besteht aus ?. </emphasis></para>
-                <para><emphasis>Spielsteine. Farbe? Form? Material?</emphasis></para>
+                <para><emphasis>Das Spielbrett ist puristisch dargestellt und mit einer grafischen
+                        Illustration in Anlehnung an die Bezier-Kurven versehen.</emphasis></para>
+                <para><emphasis>Die Spielsteine sind schlicht und in passenden Farben
+                        darsgestellt.</emphasis></para>
             </sect3>
             <sect3>
                 <title>Mulden und Kalaha</title>

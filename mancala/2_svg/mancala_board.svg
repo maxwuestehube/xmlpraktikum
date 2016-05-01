@@ -26,53 +26,63 @@
         <g id="seed">
             <desc>a so-called Kalaha "seed"</desc>
             
-            <circle r="4" stroke="blue" stroke-width="2,5" fill="blue" />
+            <circle r="4" stroke="#00A4DE" stroke-width="2,5" fill="#00A4DE" />
         </g>
         
         <g id="board">
             <desc>the actual Kalaha board, presented in traditional layout</desc>
             
+            <!-- board frame -->
+            <path d="M0 40 Q 0 0 40 0
+               L 535 0
+               M535 0 Q 575 0 575 40
+               L 575 195
+               M575 195 Q 575 235 535 235
+               L 40 235
+               M40 235 Q 0 235 0 195
+               L 0 40" stroke="black" stroke-width="2,5" fill="#E8F9FF"/>
+            
             <!-- player one's houses -->
-            <use xlink:href="#house" x="95" y="0"></use>
-            <use xlink:href="#house" x="155" y="0"></use>
-            <use xlink:href="#house" x="215" y="0"></use>
-            <use xlink:href="#house" x="275" y="0"></use>
-            <use xlink:href="#house" x="335" y="0"></use>
-            <use xlink:href="#house" x="395" y="0"></use>
+            <use xlink:href="#house" x="115" y="20"></use>
+            <use xlink:href="#house" x="175" y="20"></use>
+            <use xlink:href="#house" x="235" y="20"></use>
+            <use xlink:href="#house" x="295" y="20"></use>
+            <use xlink:href="#house" x="355" y="20"></use>
+            <use xlink:href="#house" x="415" y="20"></use>
             
             <!-- player two's houses -->
-            <use xlink:href="#house" x="95" y="110"></use>
-            <use xlink:href="#house" x="155" y="110"></use>
-            <use xlink:href="#house" x="215" y="110"></use>
-            <use xlink:href="#house" x="275" y="110"></use>
-            <use xlink:href="#house" x="335" y="110"></use>
-            <use xlink:href="#house" x="395" y="110"></use>
+            <use xlink:href="#house" x="115" y="130"></use>
+            <use xlink:href="#house" x="175" y="130"></use>
+            <use xlink:href="#house" x="235" y="130"></use>
+            <use xlink:href="#house" x="295" y="130"></use>
+            <use xlink:href="#house" x="355" y="130"></use>
+            <use xlink:href="#house" x="415" y="130"></use>
             
             <!-- player one's kalah -->
-            <use xlink:href="#kalah" x="40" y="100"></use>
+            <use xlink:href="#kalah" x="60" y="120"></use>
             
             <!-- player two's kalah -->
-            <use xlink:href="#kalah" x="495" y="100"></use>
+            <use xlink:href="#kalah" x="515" y="120"></use>
             
             <!-- some seeds -->
-            <use xlink:href="#seed" x="15" y="85"></use>
-            <use xlink:href="#seed" x="25" y="110"></use>
-            <use xlink:href="#seed" x="40" y="105"></use>
-            <use xlink:href="#seed" x="50" y="100"></use>
-            <use xlink:href="#seed" x="100" y="10"></use>
-            <use xlink:href="#seed" x="120" y="15"></use>
-            <use xlink:href="#seed" x="170" y="15"></use>
-            <use xlink:href="#seed" x="230" y="50"></use>
-            <use xlink:href="#seed" x="230" y="150"></use>
-            <use xlink:href="#seed" x="235" y="25"></use>
-            <use xlink:href="#seed" x="240" y="145"></use>
-            <use xlink:href="#seed" x="245" y="35"></use>
-            <use xlink:href="#seed" x="285" y="155"></use>
-            <use xlink:href="#seed" x="345" y="35"></use>
-            <use xlink:href="#seed" x="410" y="150"></use>
-            <use xlink:href="#seed" x="485" y="100"></use>
-            <use xlink:href="#seed" x="495" y="100"></use>
-            <use xlink:href="#seed" x="510" y="110"></use>
+            <use xlink:href="#seed" x="35" y="105"></use>
+            <use xlink:href="#seed" x="45" y="130"></use>
+            <use xlink:href="#seed" x="60" y="125"></use>
+            <use xlink:href="#seed" x="70" y="120"></use>
+            <use xlink:href="#seed" x="120" y="30"></use>
+            <use xlink:href="#seed" x="140" y="35"></use>
+            <use xlink:href="#seed" x="190" y="35"></use>
+            <use xlink:href="#seed" x="250" y="70"></use>
+            <use xlink:href="#seed" x="250" y="170"></use>
+            <use xlink:href="#seed" x="255" y="45"></use>
+            <use xlink:href="#seed" x="260" y="165"></use>
+            <use xlink:href="#seed" x="265" y="55"></use>
+            <use xlink:href="#seed" x="305" y="175"></use>
+            <use xlink:href="#seed" x="365" y="55"></use>
+            <use xlink:href="#seed" x="430" y="170"></use>
+            <use xlink:href="#seed" x="505" y="120"></use>
+            <use xlink:href="#seed" x="515" y="120"></use>
+            <use xlink:href="#seed" x="520" y="140"></use>
         </g>
         
         <g id="button_new_game">
