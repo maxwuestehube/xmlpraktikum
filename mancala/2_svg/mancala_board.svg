@@ -3,16 +3,14 @@
 <svg xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns="http://www.w3.org/2000/svg" width="80%" height="100%">
     
-    <desc>an adaptable Kalaha board</desc>
+    <desc>a Kalaha game</desc>
     
     <!-- definitioan of objects -->
     <defs>
         <g id="house">
             <desc>a so-called Kalaha "house"</desc>
             
-            <rect width="45" height="85"
-                fill="white" stroke="black" stroke-width="2" >
-            </rect>
+            <rect width="45" height="85" fill="white" stroke="black" stroke-width="2" ></rect>
         </g>
         
         <g id="kalah">
@@ -72,9 +70,25 @@
             <use xlink:href="#seed" x="495" y="100"></use>
             <use xlink:href="#seed" x="510" y="110"></use>
         </g>
+        
+        <g id="button_new_game">
+            <desc>a button for starting a new game</desc>
+            
+            <rect width="125" height="30" fill="white" stroke="black" stroke-width="2" ></rect>
+            <text x="10" y="20" fill="black">Start new Game</text>
+        </g>
+        
+        <g id="button_undo_move">
+            <desc>a button for undoing a move</desc>
+            
+            <rect width="97" height="30" fill="white" stroke="black" stroke-width="2" ></rect>
+            <text x="10" y="20" fill="black">Undo Move</text>
+        </g>
     </defs>
     
-    <use xlink:href="#board" x="0" y="0"></use>
+    <use xlink:href="#button_new_game" x="0" y="0"></use>
+    <use xlink:href="#button_undo_move" x="145" y="0"></use>
+    <use xlink:href="#board" x="0" y="50"></use>
     
     
     
