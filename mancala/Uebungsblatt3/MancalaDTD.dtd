@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT Mancalaboard (Spieler, Spieler) >
+
+<!ELEMENT Spieler (Name, AnzGewinne, IstAmZug, AnzSteine, Spielfeld)>
+
+<!ELEMENT Name (#PCDATA) >
+<!ELEMENT AnzGewinne (#PCDATA) >
+<!ELEMENT IstAmZug (#PCDATA) >
+<!ELEMENT AnzSteine (#PCDATA) >
+<!ELEMENT Spielfeld (Mulde, (Mulde)+) >
+
+<!ELEMENT Mulde (AnzSteine, Mulde)>
