@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Spieler SYSTEM "MancalaDTD.dtd">
+<Spieler>
+    <Name>  </Name>
+    <AnzGewinne> 5 </AnzGewinne>
+    <IstAmZug> </IstAmZug>
+    <AnzSteine> </AnzSteine>
+    <Spielfeld>
+        <Mulde>
+            <AnzSteine> </AnzSteine>
+        </Mulde>
+        <Mulde>
+            <AnzSteine> </AnzSteine>
+        </Mulde>
+    </Spielfeld>
+</Spieler>

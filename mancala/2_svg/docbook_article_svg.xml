@@ -55,11 +55,19 @@
                     Größe. </para>
                 <para>Das Spielbrett endet auf beiden Seiten mit je einer rund geformten
                     Gewinnmulde. Beide Gewinnmulden sind gleich groß.</para>
+<<<<<<< Updated upstream
+=======
+                <para>Alle Mulden sind in schwarz-weiß aufgeführt.</para>
+>>>>>>> Stashed changes
                 <para><emphasis role="bold">2.Version:</emphasis></para>
                 <para>Abweichend von der klassichen Form, sind in der 2.Version des Kalaha, die 12
                     Spielmulden um die Gewinnmulden angeordnet. Die Spielmulden besitzen eine
                     quadratische Form, wobei die beiden Gewinnmulden jeweils eine ovale Form
                     annehmen. </para>
+<<<<<<< Updated upstream
+=======
+                <para>Alle Mulden sind in schwarz-weiß aufgeführt.</para>
+>>>>>>> Stashed changes
             </sect3>
             <sect3>
                 <title>Button</title>
