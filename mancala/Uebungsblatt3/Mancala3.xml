@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Mancalaboard SYSTEM "MancalaDTD.dtd">
+<Mancalaboard>
+    <Spieler>
+        <Name></Name>
+        <AnzGewinne></AnzGewinne>
+        <IstAmZug></IstAmZug>
+        <AnzSteine></AnzSteine>
+        <Spielfeld>
+            <Kalaha>
+                <AnzSteine></AnzSteine>
+            </Kalaha>
+            <Mulde>
+                <AnzSteine></AnzSteine>
+            </Mulde>
+        </Spielfeld>
+    </Spieler>
+    <Spieler>
+        <Name></Name>
+        <AnzGewinne></AnzGewinne>
+        <IstAmZug></IstAmZug>
+        <AnzSteine></AnzSteine>
+        <Spielfeld>
+            <Kalaha>
+                <AnzSteine></AnzSteine>
+            </Kalaha>
+            <Mulde>
+                <AnzSteine></AnzSteine>
+            </Mulde>
+        </Spielfeld>
+    </Spieler>
+</Mancalaboard>

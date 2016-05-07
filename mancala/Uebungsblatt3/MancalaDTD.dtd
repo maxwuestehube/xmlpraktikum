@@ -7,6 +7,6 @@
 <!ELEMENT AnzGewinne (#PCDATA) >
 <!ELEMENT IstAmZug (#PCDATA) >
 <!ELEMENT AnzSteine (#PCDATA) >
-<!ELEMENT Spielfeld (Mulde, (Mulde)+) >
-
-<!ELEMENT Mulde (AnzSteine, Mulde)>
+<!ELEMENT Spielfeld (Kalaha,(Mulde)+) >
+<!ELEMENT Kalaha (AnzSteine) >
+<!ELEMENT Mulde (AnzSteine)>
