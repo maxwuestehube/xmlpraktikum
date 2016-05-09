@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE MancalaGame SYSTEM "file:/Users/wuestehube/Development/Studium/xmlpraktikum/mancala/Uebungsblatt3/MancalaDTD.dtd">
+<!DOCTYPE MancalaGame SYSTEM "../MancalaGame.dtd">
 <MancalaGame>
     <Player>
         <Name>abc</Name>
