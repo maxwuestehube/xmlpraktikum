@@ -2,14 +2,14 @@
 <!DOCTYPE MancalaGame SYSTEM "../MancalaGame.dtd">
 <MancalaGame>
     <Player>
-        <Name>abc</Name>
-        <WinCount>1</WinCount>
+        <Name>Player1</Name>
+        <WinCount>5</WinCount>
         <PlayersHalf>
             <Kalah>
                 <SeedCount>10</SeedCount>
             </Kalah>
             <House>
-                <SeedCount>2</SeedCount>
+                <SeedCount>3</SeedCount>
             </House>
             <House>
                 <SeedCount>3</SeedCount>
@@ -24,14 +24,14 @@
                 <SeedCount>6</SeedCount>
             </House>
             <House>
-                <SeedCount>10</SeedCount>
+                <SeedCount>3</SeedCount>
             </House>
         </PlayersHalf>
-        <SeedCount>36</SeedCount>
+        <SeedCount>6</SeedCount>
     </Player>
     <Player>
-        <Name>xyz</Name>
-        <WinCount>2</WinCount>
+        <Name>Player2</Name>
+        <WinCount>13</WinCount>
         <PlayersHalf>
             <Kalah>
                 <SeedCount>8</SeedCount>
@@ -49,13 +49,13 @@
                 <SeedCount>1</SeedCount>
             </House>
             <House>
-                <SeedCount>3</SeedCount>
-            </House>
-            <House>
                 <SeedCount>2</SeedCount>
             </House>
+            <House>
+                <SeedCount>1</SeedCount>
+            </House>
         </PlayersHalf>
-        <SeedCount>36</SeedCount>
+        <SeedCount>2</SeedCount>
     </Player>
-    <PlayerOnTurn>abc</PlayerOnTurn>
+    <PlayerOnTurn>Player1</PlayerOnTurn>
 </MancalaGame>
