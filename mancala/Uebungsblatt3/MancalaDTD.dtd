@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!ELEMENT Mancalaboard (Spieler, Spieler) >
+<!ELEMENT MancalaGame (Player, Player, PlayerOnTurn) >
 
-<!ELEMENT Spieler (Name, AnzGewinne, IstAmZug, AnzSteine, Spielfeld)>
-
+<!ELEMENT Player (Name, WinCount, PlayersHalf, SeedCount)>
 <!ELEMENT Name (#PCDATA) >
-<!ELEMENT AnzGewinne (#PCDATA) >
-<!ELEMENT IstAmZug (#PCDATA) >
-<!ELEMENT AnzSteine (#PCDATA) >
-<!ELEMENT Spielfeld (Kalaha,(Mulde)+) >
-<!ELEMENT Kalaha (AnzSteine) >
-<!ELEMENT Mulde (AnzSteine)>
+<!ELEMENT WinCount (#PCDATA) >
+<!ELEMENT SeedCount (#PCDATA) >
+
+<!ELEMENT PlayersHalf (Kalah, House, House, House, House, House, House) >
+<!ELEMENT Kalah (SeedCount) >
+<!ELEMENT House (SeedCount)>
+
+<!ELEMENT PlayerOnTurn (#PCDATA) >
