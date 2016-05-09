@@ -1,0 +1,6 @@
+XSLT-Datei erstellen
+
+- XSLT-Datei in Oxygen angelegt -> leeres Platzhalter-Template
+- SVG aus letztem Blatt eingefügt
+- Werte parametrisiert, insbesondere "some seeds": Template erstellt, dass Einträge in XML-File durchgeht
+- Festgestellt, dass das SVG erweitert werden muss, das getan
