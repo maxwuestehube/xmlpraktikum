@@ -40,8 +40,8 @@
             
             <!-- calculate position of the one current seed -->
             <!-- $x is the position of the pile of seeds, $count is the index of the current seed -->
-            <xsl:variable name="xPos" select="$x + 10 + 10 * ($count mod 5)" />
-            <xsl:variable name="yPos" select="$y + 10 * ($count div 5)" />
+            <xsl:variable name="xPos" select="$x + 3 + 10 * ($count mod 4)" />
+            <xsl:variable name="yPos" select="$y + 5 + 10 * ($count div 4)" />
             
             <!-- draw seed -->
             <use xlink:href="#seed" x="{$xPos}" y="{$yPos}"></use>
@@ -124,10 +124,10 @@
                         <xsl:variable name="playerIndex" select="position()" />
                         
                         <!-- calculate location of seeds and captions -->
-                        <xsl:variable name="playerX" select="25 + ($playerIndex - 1) * 500" />
+                        <xsl:variable name="playerX" select="25 + ($playerIndex - 1) * 465" />
                         
                         <!-- player name -->
-                        <text x="{$playerX}" y="100" fill="black"><xsl:value-of select="Name"/></text>
+                        <text x="{$playerX}" y="175" fill="black"><xsl:value-of select="Name"/></text>
                         
                         <!-- seeds -->
                         <xsl:call-template name="drawSeedsAndCount">
@@ -137,8 +137,8 @@
                         </xsl:call-template>
                         
                         <!-- counts of win and seeds collected -->
-                        <text x="{$playerX}" y="150" fill="black">Anzahl gewonnene Spiele: <xsl:value-of select="WinCount"/></text>
-                        <text x="{$playerX}" y="175" fill="black">Anzahl gesammelte Samen: <xsl:value-of select="SeedCount"/></text>
+                        <text x="{$playerX -25}" y="250" fill="black">Anzahl Gewinne: <xsl:value-of select="WinCount"/></text>
+                        <text x="{$playerX -25}" y="275" fill="black">Anzahl Samen: <xsl:value-of select="SeedCount"/></text>
                     </xsl:for-each>
                     
                     <!-- seeds in houses -->
@@ -150,7 +150,7 @@
                             
                             <!-- calculate seeds position -->
                             <xsl:variable name="seedsX" select="120 + ($houseIndex - 1) * 60" />
-                            <xsl:variable name="seedsY" select="35 + ($playerIndex - 1) * 100" />
+                            <xsl:variable name="seedsY" select="35 + ($playerIndex - 1) * 110" />
                             
                             <!-- draw seeds -->
                             <xsl:call-template name="drawSeedsAndCount">
@@ -162,7 +162,7 @@
                     </xsl:for-each>
                     
                     <!-- indication who is on turn -->
-                    <text x="0" y="305" fill="black">Spieler am Zug: <xsl:value-of select="PlayerOnTurn"/></text>
+                    <text x="200" y="305" fill="black">Spieler am Zug: <xsl:value-of select="PlayerOnTurn"/></text>
                 </g>
                 
                 <g id="button_new_game">
