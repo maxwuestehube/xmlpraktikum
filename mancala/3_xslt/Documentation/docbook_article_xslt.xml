@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://docbook.org/xml/4.5/docbookx.dtd">
+<article>
+    <title>XML-Technologien, Übungsblatt 3: XSLT - Mancala-Spielbrett</title>
+    <sect1>
+        <title>1. Zustandsdaten</title>
+        <para>Um den aktuellen Spielzustand eines Mancal-Spiels zu beschreiben werden diese Daten benötigt:<itemizedlist>
+                <listitem>
+                    <para>Verteilung der Steine: Wie viele Steine pro Mulde und Kalaha</para>
+                </listitem>
+                <listitem>
+                    <para>Spieler am Zug</para>
+                </listitem>
+                <listitem>
+                    <para>Informationen zum Spieler: Name, Anzahl gewonnener Spiele, Anzahl der
+                        Steine, die im aktuellen Spiel bereits gewonnen wurden</para>
+                </listitem>
+            </itemizedlist></para>
+        <para>Als UML-Diagramm dargestellt sehen die Daten zu einem Zustand folgendermaßen aus: <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="images/Klassendiagramm.png" format="PNG" width="100%"/>
+                </imageobject>
+            </inlinemediaobject></para>
+        <para>Als DTD lesen sich die Zustandsdaten wie folgt:<programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!ELEMENT MancalaGame (Player, Player, PlayerOnTurn) >
+
+&lt;!ELEMENT Player (Name, WinCount, PlayersHalf, SeedCount)>
+&lt;!ELEMENT Name (#PCDATA) >
+&lt;!ELEMENT WinCount (#PCDATA) >
+&lt;!ELEMENT SeedCount (#PCDATA) >
+
+&lt;!ELEMENT PlayersHalf (Kalah, House, House, House, House, House, House) >
+&lt;!ELEMENT Kalah (SeedCount) >
+&lt;!ELEMENT House (SeedCount)>
+
+&lt;!ELEMENT PlayerOnTurn (#PCDATA) ></programlisting></para>
+    </sect1>
+    <sect1>
+        <title>2. Übersetzung nach SVG</title>
+        <sect2>
+            <title>2.1. XSLT-Template</title>
+            <para>Als Grundlage haben wir das vom Oxygen XML Editor generierte XSLT-Template
+                verwendet:<programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    exclude-result-prefixes="xs"
+    version="2.0">
+    
+&lt;/xsl:stylesheet></programlisting></para>
+        </sect2>
+        <sect2>
+            <title>2.2. SVG parametrisieren</title>
+            <para>Anschließend haben wir den Code des SVGs aus Übungsblatt 2 übernommen, eingefügt
+                und anschließend parametrisiert.</para>
+            <sect3>
+                <title>2.2.1. Verteilung der Spielsteine</title>
+                <para>Mithilfe der XSLT-Direktiven <code>xsl:for-each</code> und
+                        <code>xsl:value-of</code> wurden die relevanten Daten aus der auf der DTD
+                    für Zustandsdaten basierenden XML-Datei ausgelesen. Zusätzlich wurde
+                        <code>xsl:variable name="..." select="position()"</code> verwendet um eine
+                    Zählvariable innerhalb der For-Each-Loop zu haben und auf dieser basierend die
+                    Position von Mulden, Kalahas oder Spielern zu erkennen.</para>
+                <para>Zunächst haben wir pro Mulde und Kalaha die Anzahl der Spielsteine als Text
+                    ausgegeben. Zusätzlich, als Schmankerl, haben wir die Anzahl der Spielsteine
+                    grafisch visualisiert und dazu in XSLT die Direktiven <code>xsl:template</code>
+                    und <code>xsl:call-template</code> verwendet um ein sich rekursiv selbst
+                    aufrufendes Template zu erstellen, das pro Aufruf einen Spielstein in die
+                    SVG-Datei einträgt.</para>
+            </sect3>
+            <sect3>
+                <title>2.2.3. Spieler-Daten</title>
+                <para>Als wir die Spieler-Daten in das SVG einbetten wollten, ist uns aufgefallen,
+                    dass wir dieses zunächst noch erweitern mussten. So fügten wir diverse
+                    Text-Felder ein und befüllten sie in gewohnter Vorgehensweise mit den relevanten
+                    Daten aus der XML-Datei, die den Spielzustand beschreibt.</para>
+            </sect3>
+        </sect2>
+    </sect1>
+    <sect1>
+        <title>3. Resultat</title>
+        <para>Die schlussendliche Ausgabe unserer Transformation sieht folgendermaßen aus:</para>
+        <para><inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="images/SVG out.png" format="PNG"/>
+                </imageobject>
+            </inlinemediaobject></para>
+    </sect1>
+</article>
