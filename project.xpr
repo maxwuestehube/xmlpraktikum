@@ -10,11 +10,26 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>mancala/3_xslt/Transformation%20MancalaGame.xslt</String>
+                                    <String>mancala/3_xslt/Game%20States/Game%20State%203.xml</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
-                                        <String>Transformation MancalaGame</String>
+                                        <String>3_XSLT</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>mancala/3_xslt/Game%20States/Game%20State%202.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>3_XSLT</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
@@ -30,6 +45,21 @@
                                 <field name="scenarioIds">
                                     <list>
                                         <String>3_XSLT</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>mancala/3_xslt/Transformation%20MancalaGame.xslt</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>Transformation MancalaGame</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
