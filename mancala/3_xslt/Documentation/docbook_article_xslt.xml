@@ -4,7 +4,7 @@
     <title>XML-Technologien, Übungsblatt 3: XSLT - Mancala-Spielbrett</title>
     <sect1>
         <title>1. Zustandsdaten</title>
-        <para>Um den aktuellen Spielzustand eines Mancal-Spiels zu beschreiben werden diese Daten benötigt:<itemizedlist>
+        <para>Um den aktuellen Spielzustand eines Mancal-Spiels zu beschreiben werden folgende Daten benötigt:<itemizedlist>
                 <listitem>
                     <para>Verteilung der Steine: Wie viele Steine pro Mulde und Kalaha</para>
                 </listitem>
@@ -16,7 +16,7 @@
                         Steine, die im aktuellen Spiel bereits gewonnen wurden</para>
                 </listitem>
             </itemizedlist></para>
-        <para>Als UML-Diagramm dargestellt sehen die Daten zu einem Zustand folgendermaßen aus: <inlinemediaobject>
+        <para>Als UML-Diagramm dargestellt, sehen die Daten zu einem Zustand folgendermaßen aus: <inlinemediaobject>
                 <imageobject>
                     <imagedata fileref="images/Klassendiagramm.png" format="PNG" width="100%"/>
                 </imageobject>
@@ -38,7 +38,16 @@
     <sect1>
         <title>2. Übersetzung nach SVG</title>
         <sect2>
-            <title>2.1. XSLT-Template</title>
+            <title>2.1 Übersetzung DTD in XML</title>
+            <para>Die DTD wird in ein XML Dokument übersetzt. Für die Darstellung verschiedener
+                Zustände, werden drei XML-Dokumente (Game State) erstellt. Hierbei werden
+                beispielsweise die Namen der Player definiert, die Anzahl der Samen in den Mulden
+                als auch in den Kalahas beliebig verteilt, die Anzahl der Gewinne der jeweiligen
+                Spieler gewählt und auch angegeben, welcher Spieler am Zug ist. Zu beachten ist,
+                dass die Gesamtzahl der Samen beider Spieler 72 beträgt. </para>
+        </sect2>
+        <sect2>
+            <title>2.2 XSLT-Template</title>
             <para>Als Grundlage haben wir das vom Oxygen XML Editor generierte XSLT-Template
                 verwendet:<programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -49,26 +58,26 @@
 &lt;/xsl:stylesheet></programlisting></para>
         </sect2>
         <sect2>
-            <title>2.2. SVG parametrisieren</title>
+            <title>2.3 SVG parametrisieren</title>
             <para>Anschließend haben wir den Code des SVGs aus Übungsblatt 2 übernommen, eingefügt
                 und anschließend parametrisiert.</para>
             <sect3>
-                <title>2.2.1. Verteilung der Spielsteine</title>
+                <title> 2.3.1 Verteilung der Spielsteine</title>
                 <para>Mithilfe der XSLT-Direktiven <code>xsl:for-each</code> und
                         <code>xsl:value-of</code> wurden die relevanten Daten aus der auf der DTD
                     für Zustandsdaten basierenden XML-Datei ausgelesen. Zusätzlich wurde
-                        <code>xsl:variable name="..." select="position()"</code> verwendet um eine
+                        <code>xsl:variable name="..." select="position()"</code> verwendet, um eine
                     Zählvariable innerhalb der For-Each-Loop zu haben und auf dieser basierend die
                     Position von Mulden, Kalahas oder Spielern zu erkennen.</para>
                 <para>Zunächst haben wir pro Mulde und Kalaha die Anzahl der Spielsteine als Text
                     ausgegeben. Zusätzlich, als Schmankerl, haben wir die Anzahl der Spielsteine
                     grafisch visualisiert und dazu in XSLT die Direktiven <code>xsl:template</code>
-                    und <code>xsl:call-template</code> verwendet um ein sich rekursiv selbst
+                    und <code>xsl:call-template</code> verwendet, um ein sich rekursiv selbst
                     aufrufendes Template zu erstellen, das pro Aufruf einen Spielstein in die
                     SVG-Datei einträgt.</para>
             </sect3>
             <sect3>
-                <title>2.2.3. Spieler-Daten</title>
+                <title>2.3.2 Spieler-Daten</title>
                 <para>Als wir die Spieler-Daten in das SVG einbetten wollten, ist uns aufgefallen,
                     dass wir dieses zunächst noch erweitern mussten. So fügten wir diverse
                     Text-Felder ein und befüllten sie in gewohnter Vorgehensweise mit den relevanten

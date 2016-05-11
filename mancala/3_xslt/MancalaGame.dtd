@@ -7,7 +7,7 @@
 <!ELEMENT SeedCount (#PCDATA) >
 
 <!ELEMENT PlayersHalf (Kalah, House, House, House, House, House, House) >
-<!ELEMENT Kalah (SeedCount) >
+<!ELEMENT Kalah (SeedCount)>
 <!ELEMENT House (SeedCount)>
 
 <!ELEMENT PlayerOnTurn (#PCDATA) >
