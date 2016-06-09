@@ -10,6 +10,36 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
+                                    <String>mancala/4_xquery/Methoden.xql</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>Metoden</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XQUERY</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>mancala/3_xslt/Game%20States/Game%20State%201.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>3_XSLT</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
                                     <String>mancala/4_xquery/Metoden.xql</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -41,21 +71,6 @@
                             <scenarioAssociation>
                                 <field name="url">
                                     <String>mancala/3_xslt/Game%20States/Game%20State%203.xml</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>3_XSLT</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>XSL</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>mancala/3_xslt/Game%20States/Game%20State%201.xml</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
@@ -200,7 +215,7 @@
                                     <String>${currentFileURL}</String>
                                 </field>
                                 <field name="inputXMLURL">
-                                    <String>file:/Z:/Users/wuestehube/Development/Studium/xmlpraktikum/mancala/4_xquery/books.xml</String>
+                                    <String>${pdu}/mancala/3_xslt/books.xml</String>
                                 </field>
                                 <field name="defaultScenario">
                                     <Boolean>false</Boolean>
