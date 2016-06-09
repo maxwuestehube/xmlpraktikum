@@ -179,13 +179,6 @@
                     <text x="10" y="20" fill="black">Undo Move</text>
                 </g>
                 
-                <g id="button_name">
-                    <desc>a button for name</desc>
-                    
-                    <rect width="97" height="30" fill="white" stroke="black" stroke-width="2" ></rect>
-                    <text x="10" y="20" fill="black">Name</text>
-                </g>
-                
                 <g id="logo">
                     <desc>a logo</desc>
                     
@@ -197,7 +190,6 @@
             <use xlink:href="#logo" x="0" y="0"></use>
             <use xlink:href="#button_new_game" x="0" y="40"></use>
             <use xlink:href="#button_undo_move" x="145" y="40"></use>
-            <use xlink:href="button_name" x="190" y="40"></use>
             <use xlink:href="#board" x="0" y="90"></use>
         </svg>
     </xsl:template>
