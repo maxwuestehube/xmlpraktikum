@@ -293,8 +293,8 @@ declare updating function mancalaGame:updateKalahAfterMovingSeeds($document, $ho
     
     return (
         if (($houseIndexStartMove < (21 -$kalahToUpdate * 7)) and (($finalPosition - xs:integer($finalPosition div 7) + 2) >= (21 - $kalahToUpdate * 7)))
-        then (kalah:setSeedCount($document, $kalahToUpdate, kalah:getSeedCount($document, $kalahToUpdate) + $fullLaps + 1))
-        else (kalah:setSeedCount($document, $kalahToUpdate, kalah:getSeedCount($document, $kalahToUpdate) + $fullLaps))
+        then kalah:setSeedCount($document, $kalahToUpdate, kalah:getSeedCount($document, $kalahToUpdate) + $fullLaps + 1)
+        else kalah:setSeedCount($document, $kalahToUpdate, kalah:getSeedCount($document, $kalahToUpdate) + $fullLaps)
     )
 };
 
@@ -345,11 +345,14 @@ declare updating function mancalaGame:makeMove($document, $houseIndex) {
     let $startSeedCount := house:getSeedCount($document, $houseIndex)
     
     return (
+        (: move seeds :)
         mancalaGame:moveSeeds($document, $houseIndex, $startSeedCount)
         
         (: check for win of seeds :)
+        (: TODO :)
         
         (: check for extra move, switch player who is on turn accordingly :)
+        (: TODO :)
     )    
 };
 
