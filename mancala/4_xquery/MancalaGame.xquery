@@ -206,6 +206,101 @@ declare function mancalaGame:getPlayerOnTurn($document) {
 
 
 (:~
+: A clean, yet due to the limitations of XQuery not-working recursive version of moving the seeds.
+: Updating the same nodes multiple times across the calls originating from one function is forbidden.
+: Left in the code to illustrate the limitations of XQuery.
+:
+: (:~
+: : This function moves the seeds, starting at the given house with the given amount of seeds.
+: : It calls itself recursively.
+: :
+: : @param $document XML document
+: : @param $houseIndex index of the house to start the move on
+: : @param $seedsToMove amount of seeds to move
+: :)
+: declare updating function mancalaGame:moveSeeds($document, $houseIndex, $seedsToMove) {
+:     let $isNotAtKalah := xs:integer($houseIndex mod 6)
+:     let $kalahToIncreaseIndex := xs:integer((($houseIndex -1) mod 12) div 6) + 1
+:     
+:     return (
+:         (: check for termination of recursion :)
+:         if ($seedsToMove > 0)
+:         then (
+:             if ($isNotAtKalah = 0)
+:             then (
+:                 house:increaseSeedCount($document, $houseIndex),
+:                 mancalaGame:moveSeeds($document, $houseIndex + 1, $seedsToMove - 1)
+:             )
+:             else (
+:                 (: handle kalah :)
+:                 kalah:increaseSeedCount($document, $kalahToIncreaseIndex),
+:                 if ($seedsToMove > 1)
+:                 then (
+:                     house:increaseSeedCount($document, $houseIndex),
+:                     mancalaGame:moveSeeds($document, $houseIndex + 1, $seedsToMove - 2)
+:                 )
+:                 else ()
+:             )
+:         )
+:         else ()
+:     )
+: };
+:
+:)
+
+
+
+(:~
+: This function updates a house with a given index after seeds have been moved after a turn.
+:
+: @param $document XML document
+: @param $houseIndexStartMove index of the house to start the move on
+: @param $seedsToMove amount of seeds to move
+: @param $houseToUpdate index of the house to update
+:)
+declare updating function mancalaGame:updateHouseAfterMovingSeeds($document, $houseIndexStartMove, $seedsToMove, $houseToUpdate) {
+    let $fullLaps := xs:integer($seedsToMove div 14)
+    let $finalPosition := $houseIndexStartMove + $seedsToMove
+    
+    return (
+        if (($houseIndexStartMove < $houseToUpdate) and (($finalPosition - xs:integer(($finalPosition + 1) div 7)) >= $houseToUpdate))
+        then (
+            if ($houseIndexStartMove = $houseToUpdate)
+            then house:setSeedCount($document, $houseToUpdate, $fullLaps + 1)
+            else house:setSeedCount($document, $houseToUpdate, house:getSeedCount($document, $houseToUpdate) + $fullLaps + 1)
+        )
+        else (
+            if ($houseIndexStartMove = $houseToUpdate)
+            then house:setSeedCount($document, $houseToUpdate, $fullLaps)
+            else house:setSeedCount($document, $houseToUpdate, house:getSeedCount($document, $houseToUpdate) + $fullLaps)
+        )   
+    )
+};
+
+
+
+(:~
+: This function updates a kalah with a given index after seeds have been moved after a turn.
+:
+: @param $document XML document
+: @param $houseIndexStartMove index of the house to start the move on
+: @param $seedsToMove amount of seeds to move
+: @param $kalahToUpdate index of the kalah to update
+:)
+declare updating function mancalaGame:updateKalahAfterMovingSeeds($document, $houseIndexStartMove, $seedsToMove, $kalahToUpdate) {
+    let $fullLaps := xs:integer($seedsToMove div 14)
+    let $finalPosition := $houseIndexStartMove + $seedsToMove
+    
+    return (
+        if (($houseIndexStartMove < (21 -$kalahToUpdate * 7)) and (($finalPosition - xs:integer($finalPosition div 7) + 2) >= (21 - $kalahToUpdate * 7)))
+        then (kalah:setSeedCount($document, $kalahToUpdate, kalah:getSeedCount($document, $kalahToUpdate) + $fullLaps + 1))
+        else (kalah:setSeedCount($document, $kalahToUpdate, kalah:getSeedCount($document, $kalahToUpdate) + $fullLaps))
+    )
+};
+
+
+
+(:~
 : This function moves the seeds, starting at the given house with the given amount of seeds.
 : It calls itself recursively.
 :
@@ -214,30 +309,27 @@ declare function mancalaGame:getPlayerOnTurn($document) {
 : @param $seedsToMove amount of seeds to move
 :)
 declare updating function mancalaGame:moveSeeds($document, $houseIndex, $seedsToMove) {
-    let $isNotAtKalah := xs:integer($houseIndex mod 6)
-    let $kalahToIncreaseIndex := xs:integer((($houseIndex -1) mod 12) div 6) + 1
+    let $fullLaps := xs:integer($seedsToMove div 14)
+    let $finalPosition := $houseIndex + $seedsToMove
     
     return (
-        (: check for termination of recursion :)
-        if ($seedsToMove > 0)
-        then (
-            if ($isNotAtKalah = 0)
-            then (
-                house:increaseSeedCount($document, $houseIndex),
-                mancalaGame:moveSeeds($document, $houseIndex + 1, $seedsToMove - 1)
-            )
-            else (
-                (: handle kalah :)
-                kalah:increaseSeedCount($document, $kalahToIncreaseIndex),
-                if ($seedsToMove > 1)
-                then (
-                    house:increaseSeedCount($document, $houseIndex),
-                    mancalaGame:moveSeeds($document, $houseIndex + 1, $seedsToMove - 2)
-                )
-                else ()
-            )
-        )
-        else ()
+        (: houses :)
+        mancalaGame:updateHouseAfterMovingSeeds($document, $houseIndex, $seedsToMove, 1),
+        mancalaGame:updateHouseAfterMovingSeeds($document, $houseIndex, $seedsToMove, 2),
+        mancalaGame:updateHouseAfterMovingSeeds($document, $houseIndex, $seedsToMove, 3),
+        mancalaGame:updateHouseAfterMovingSeeds($document, $houseIndex, $seedsToMove, 4),
+        mancalaGame:updateHouseAfterMovingSeeds($document, $houseIndex, $seedsToMove, 5),
+        mancalaGame:updateHouseAfterMovingSeeds($document, $houseIndex, $seedsToMove, 6),
+        mancalaGame:updateHouseAfterMovingSeeds($document, $houseIndex, $seedsToMove, 7),
+        mancalaGame:updateHouseAfterMovingSeeds($document, $houseIndex, $seedsToMove, 8),
+        mancalaGame:updateHouseAfterMovingSeeds($document, $houseIndex, $seedsToMove, 9),
+        mancalaGame:updateHouseAfterMovingSeeds($document, $houseIndex, $seedsToMove, 10),
+        mancalaGame:updateHouseAfterMovingSeeds($document, $houseIndex, $seedsToMove, 11),
+        mancalaGame:updateHouseAfterMovingSeeds($document, $houseIndex, $seedsToMove, 12),
+        
+        (: kalahs :)
+        mancalaGame:updateKalahAfterMovingSeeds($document, $houseIndex, $seedsToMove, 1),
+        mancalaGame:updateKalahAfterMovingSeeds($document, $houseIndex, $seedsToMove, 2)
     )
 };
 
@@ -253,9 +345,7 @@ declare updating function mancalaGame:makeMove($document, $houseIndex) {
     let $startSeedCount := house:getSeedCount($document, $houseIndex)
     
     return (
-        (: move seeds :)
-        house:resetSeedCount($document, $houseIndex),
-        mancalaGame:moveSeeds($document, $houseIndex + 1, $startSeedCount)
+        mancalaGame:moveSeeds($document, $houseIndex, $startSeedCount)
         
         (: check for win of seeds :)
         
