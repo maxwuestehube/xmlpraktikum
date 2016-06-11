@@ -2,7 +2,7 @@
 <MancalaGame>
     <Player>
         <Name>Player1</Name>
-        <WinCount>4</WinCount>
+        <WinCount>0</WinCount>
         <PlayersHalf>
             <Kalah>
                 <SeedCount>10</SeedCount>
@@ -30,7 +30,7 @@
     </Player>
     <Player>
         <Name>Player2</Name>
-        <WinCount>2</WinCount>
+        <WinCount>0</WinCount>
         <PlayersHalf>
             <Kalah>
                 <SeedCount>8</SeedCount>

@@ -30,7 +30,7 @@
     </Player>
     <Player>
         <Name>Player2</Name>
-        <WinCount>2</WinCount>
+        <WinCount>6</WinCount>
         <PlayersHalf>
             <Kalah>
                 <SeedCount>8</SeedCount>
