@@ -21,12 +21,12 @@ declare updating function player:ZeroWinCount($this){
     replace value of node $this/WinCount with 0
 };
 
-declare function player:getName($this){
+declare function player:getNames($this){
     for $x in $this/MancalaGame/Player  
     return $x/Name
 };
 
-declare function player:getWinCount($this){
+declare function player:getWinCounts($this){
     for $x in $this/MancalaGame/Player  
     return $x/WinCount
 };
