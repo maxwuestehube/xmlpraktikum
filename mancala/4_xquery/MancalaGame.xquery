@@ -505,6 +505,6 @@ declare function player:getName($document, $playerIndex) {
 (: Query calls for class MancalaGame :)
 
 (: mancalaGame:getPlayerOnTurn(fn:doc("../3_xslt/Game States/Game State 1.xml")) :)
-mancalaGame:makeMove(fn:doc("../3_xslt/Game States/Game State 1.xml"), 1)
-(: mancalaGame:resetGame(fn:doc("../3_xslt/Game States/Game State 1.xml")) :)
+(: mancalaGame:makeMove(fn:doc("../3_xslt/Game States/Game State 1.xml"), 1) :)
+ mancalaGame:resetGame(fn:doc("../3_xslt/Game States/Game State 1.xml")) 
 (: mancalaGame:switchPlayerOnTurn(fn:doc("../3_xslt/Game States/Game State 1.xml")) :)

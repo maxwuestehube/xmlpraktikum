@@ -9,11 +9,12 @@ declare namespace kalah = "kalah";
 declare namespace mancalaGame = "mancalaGame";
 declare namespace player = "player";
 
+declare option db:writeback 'true';
 (:~
  : This function generates the welcome page.
  : @return HTML page
  :)
-declare
+declare 
   %rest:path("")
   %output:method("xhtml")
   %output:omit-xml-declaration("no")
@@ -29,20 +30,9 @@ declare
     </head>
     <body>
     
-     <img y="0" x="0" src="static/MancalaSVG.svg" />
      <svg>
-             <g id="button_new_game" onclick="startNewGame">
-         <desc>a button for starting a new game</desc>
-         <rect width="60" height="10" fill="white" stroke="black" stroke-width="1"/>
-         <text x="3" y="7" fill="black">Start new Game</text>
-      </g>
-      
-      <g id="button_undo_move">
-         <desc>a button for undoing a move</desc>
-         <rect x="70" width="45" height="10" fill="white" stroke="black" stroke-width="1"/>
-         <text x="73" y="7" fill="black">Undo Move</text>
-      </g>
-    </svg>
+     <img y="0" x="0" src="static/MancalaSVG.svg" height="400" width="600"/>
+     </svg>
         
     <form action="new_game.html" id="newGame">
      <label for="House">Haus</label>
@@ -50,9 +40,8 @@ declare
      <button type="new-Game">Neues Spiel</button>
     </form>
     
-    <form method="put" action="/">
-        <p>Your message:<br />
-        <input name="message" size="50"></input>
+    <form method="put" action="/test">
+        <p>TEST:<br />
         <input type="submit" /></p>
       </form>
     </body>
@@ -87,32 +76,187 @@ declare
  : @return response element 
  :)
 declare 
-  %restxq:path("/")
-  %restxq:GET
-  %restxq:form-param("message","{$message}", "(no message)")
-  %restxq:header-param("User-Agent", "{$agent}")
-  function page:hello-postman(
-        $message as xs:string,
-        $agent  as xs:string*
+  %rest:path("/test")
+  %rest:GET
+  function page:test-game(
     )
-    as element(response)
 {
-  <response type='/'>
-    <results>
-    {
-    let $playerIndex := page:house-getPlayerIndexByHouseIndex(1)
-    let $houseInPlayerNodeIndex := page:house-getHouseInPlayerNodeIndexByHouseIndex(1)
 
-    let $seedCount := fn:doc("static/Game States/Game State 1.xml")/MancalaGame/Player[$playerIndex]/PlayersHalf/House[$houseInPlayerNodeIndex]/SeedCount
-    
-   (::return page:resetGame("static/Game States/Game State 1.xml"):)
-   (::return page:kalah-increaseSeedCount("static/Game States/Game State 1.xml", 1):)
-  return <rest:forward>
-   page:resetGame("static/Game States/Game State 1.xml")
-   </rest:forward>
-   }</results>
-  </response>
+   let $document := fn:doc("static/Game States/Game State 1.xml")
+   (:return page:svg($document):)
+   return page:replaceTest()
+  
+
 };
+
+declare function page:replaceTest(){
+ let $document := fn:doc("static/Game States/Game State 1.xml")
+ let $test := %updating function($document){replace value of node $document/MancalaGame/Player[1]/WinCount with $document/MancalaGame/Player[1]/WinCount +1}
+ return page:svg($document update(updating $test(.)))
+};
+
+declare 
+function page:svg($document){
+let $seedCount := $document/MancalaGame/Player[1]/PlayersHalf/Kalah/SeedCount/text()
+let $winCount1 := $document/MancalaGame/Player[1]/WinCount/text() 
+    return 
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <title>BaseX HTTP Services</title>
+      <link rel="stylesheet" type="text/css" href="static/style.css"/>
+    </head>
+    <body>
+    
+     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="400" width="600">
+   <desc>a Kalaha game</desc>
+   <defs>
+      <g id="house">
+         <desc>a so-called Kalaha "house"</desc>
+         <rect width="45" height="85" fill="white" stroke="black" stroke-width="2"/>
+      </g>
+      <g id="kalah">
+         <desc>a so-called Kalaha "Kalah"</desc>
+         <circle r="40" stroke="black" stroke-width="2,5" fill="white"/>
+      </g>
+      <g id="seed">
+         <desc>a so-called Kalaha "seed"</desc>
+         <circle r="4" stroke="#00A4DE" stroke-width="2,5" fill="#00A4DE"/>
+      </g>
+      <g id="board">
+         <desc>the actual Kalaha board, presented in traditional layout</desc>
+         <path d="M0 40 Q 0 0 40 0                         L 535 0                         M535 0 Q 575 0 575 40                         L 575 195                         M575 195 Q 575 235 535 235                         L 40 235                         M40 235 Q 0 235 0 195                         L 0 40" stroke="black" stroke-width="2,5" fill="#E8F9FF"/>
+         <use xlink:href="#kalah" x="60" y="120"/>
+         <use xlink:href="#house" x="115" y="20"/>
+         <use xlink:href="#house" x="175" y="20"/>
+         <use xlink:href="#house" x="235" y="20"/>
+         <use xlink:href="#house" x="295" y="20"/>
+         <use xlink:href="#house" x="355" y="20"/>
+         <use xlink:href="#house" x="415" y="20"/>
+         <use xlink:href="#kalah" x="515" y="120"/>
+         <use xlink:href="#house" x="115" y="130"/>
+         <use xlink:href="#house" x="175" y="130"/>
+         <use xlink:href="#house" x="235" y="130"/>
+         <use xlink:href="#house" x="295" y="130"/>
+         <use xlink:href="#house" x="355" y="130"/>
+         <use xlink:href="#house" x="415" y="130"/>
+         <text x="25" y="175" fill="black">Player1</text>
+         <text x="25" y="105" fill="black">10</text>
+         <use xlink:href="#seed" x="48" y="135"/>
+         <use xlink:href="#seed" x="38" y="132.5"/>
+         <use xlink:href="#seed" x="28" y="130"/>
+         <use xlink:href="#seed" x="58" y="127.5"/>
+         <use xlink:href="#seed" x="48" y="125"/>
+         <use xlink:href="#seed" x="38" y="122.5"/>
+         <use xlink:href="#seed" x="28" y="120"/>
+         <use xlink:href="#seed" x="58" y="117.5"/>
+         <use xlink:href="#seed" x="48" y="115"/>
+         <use xlink:href="#seed" x="38" y="112.5"/>
+         <text x="0" y="250" fill="black">Anzahl Gewinne: {$winCount1}</text>
+         <text x="0" y="275" fill="black">Anzahl Samen: {$seedCount}</text>
+         <text x="490" y="175" fill="black">Player2</text>
+         <text x="490" y="105" fill="black">8</text>
+         <use xlink:href="#seed" x="493" y="130"/>
+         <use xlink:href="#seed" x="523" y="127.5"/>
+         <use xlink:href="#seed" x="513" y="125"/>
+         <use xlink:href="#seed" x="503" y="122.5"/>
+         <use xlink:href="#seed" x="493" y="120"/>
+         <use xlink:href="#seed" x="523" y="117.5"/>
+         <use xlink:href="#seed" x="513" y="115"/>
+         <use xlink:href="#seed" x="503" y="112.5"/>
+         <text x="465" y="250" fill="black">Anzahl Gewinne: 2</text>
+         <text x="465" y="275" fill="black">Anzahl Samen: 1</text>
+         <text x="120" y="35" fill="black">2</text>
+         <use xlink:href="#seed" x="143" y="45"/>
+         <use xlink:href="#seed" x="133" y="42.5"/>
+         <text x="180" y="35" fill="black">3</text>
+         <use xlink:href="#seed" x="213" y="47.5"/>
+         <use xlink:href="#seed" x="203" y="45"/>
+         <use xlink:href="#seed" x="193" y="42.5"/>
+         <text x="240" y="35" fill="black">4</text>
+         <use xlink:href="#seed" x="243" y="50"/>
+         <use xlink:href="#seed" x="273" y="47.5"/>
+         <use xlink:href="#seed" x="263" y="45"/>
+         <use xlink:href="#seed" x="253" y="42.5"/>
+         <text x="300" y="35" fill="black">1</text>
+         <use xlink:href="#seed" x="313" y="42.5"/>
+         <text x="360" y="35" fill="black">6</text>
+         <use xlink:href="#seed" x="383" y="55"/>
+         <use xlink:href="#seed" x="373" y="52.5"/>
+         <use xlink:href="#seed" x="363" y="50"/>
+         <use xlink:href="#seed" x="393" y="47.5"/>
+         <use xlink:href="#seed" x="383" y="45"/>
+         <use xlink:href="#seed" x="373" y="42.5"/>
+         <text x="420" y="35" fill="black">8</text>
+         <use xlink:href="#seed" x="423" y="60"/>
+         <use xlink:href="#seed" x="453" y="57.5"/>
+         <use xlink:href="#seed" x="443" y="55"/>
+         <use xlink:href="#seed" x="433" y="52.5"/>
+         <use xlink:href="#seed" x="423" y="50"/>
+         <use xlink:href="#seed" x="453" y="47.5"/>
+         <use xlink:href="#seed" x="443" y="45"/>
+         <use xlink:href="#seed" x="433" y="42.5"/>
+         <text x="120" y="145" fill="black">8</text>
+         <use xlink:href="#seed" x="123" y="170"/>
+         <use xlink:href="#seed" x="153" y="167.5"/>
+         <use xlink:href="#seed" x="143" y="165"/>
+         <use xlink:href="#seed" x="133" y="162.5"/>
+         <use xlink:href="#seed" x="123" y="160"/>
+         <use xlink:href="#seed" x="153" y="157.5"/>
+         <use xlink:href="#seed" x="143" y="155"/>
+         <use xlink:href="#seed" x="133" y="152.5"/>
+         <text x="180" y="145" fill="black">10</text>
+         <use xlink:href="#seed" x="203" y="175"/>
+         <use xlink:href="#seed" x="193" y="172.5"/>
+         <use xlink:href="#seed" x="183" y="170"/>
+         <use xlink:href="#seed" x="213" y="167.5"/>
+         <use xlink:href="#seed" x="203" y="165"/>
+         <use xlink:href="#seed" x="193" y="162.5"/>
+         <use xlink:href="#seed" x="183" y="160"/>
+         <use xlink:href="#seed" x="213" y="157.5"/>
+         <use xlink:href="#seed" x="203" y="155"/>
+         <use xlink:href="#seed" x="193" y="152.5"/>
+         <text x="240" y="145" fill="black">4</text>
+         <use xlink:href="#seed" x="243" y="160"/>
+         <use xlink:href="#seed" x="273" y="157.5"/>
+         <use xlink:href="#seed" x="263" y="155"/>
+         <use xlink:href="#seed" x="253" y="152.5"/>
+         <text x="300" y="145" fill="black">1</text>
+         <use xlink:href="#seed" x="313" y="152.5"/>
+         <text x="360" y="145" fill="black">3</text>
+         <use xlink:href="#seed" x="393" y="157.5"/>
+         <use xlink:href="#seed" x="383" y="155"/>
+         <use xlink:href="#seed" x="373" y="152.5"/>
+         <text x="420" y="145" fill="black">1</text>
+         <use xlink:href="#seed" x="433" y="152.5"/>
+         <text x="200" y="305" fill="black">Spieler am Zug: Player1</text>
+      </g>
+      <g id="logo">
+         <desc>a logo</desc>
+         <text x="10" y="25" fill="black">Kalaha</text>
+      </g>
+   </defs>
+   <use xlink:href="#logo" x="0" y="0"/>
+   <use xlink:href="#button_new_game" x="0" y="40"/>
+   <use xlink:href="#button_undo_move" x="145" y="40"/>
+   <use xlink:href="#board" x="0" y="90"/>
+</svg>
+
+        
+    <form action="new_game.html" id="newGame">
+     <label for="House">Haus</label>
+     <input type="text" id="House"/>
+     <button type="new-Game">Neues Spiel</button>
+    </form>
+    
+    <form method="put" action="/test">
+        <p>TEST:<br />
+        <input type="submit" /></p>
+      </form>
+    </body>
+    
+  </html>
+};
+
 
 (:~
 : This function gets a house's player node index by the index of the house.
@@ -165,7 +309,7 @@ declare function page:house-getSeedCount($document, $houseIndex) {
 : @param $document XML document
 : @param $houseIndex index of house which seed count to reset
 :)
-declare updating function page:house-increaseSeedCount($document, $houseIndex) {
+declare %updating function page:house-increaseSeedCount($document, $houseIndex) {
     page:house-setSeedCount($document, $houseIndex, page:house-getSeedCount($document, $houseIndex) + 1)
 };
 
@@ -177,7 +321,7 @@ declare updating function page:house-increaseSeedCount($document, $houseIndex) {
 : @param $document XML document
 : @param $houseIndex index of house which seed count to reset
 :)
-declare updating function page:house-resetSeedCount($document, $houseIndex) {
+declare %updating function page:house-resetSeedCount($document, $houseIndex) {
     page:house-setSeedCount($document, $houseIndex, 0)
 };
 
@@ -190,7 +334,7 @@ declare updating function page:house-resetSeedCount($document, $houseIndex) {
 : @param $houseIndex index of house which seed count to set
 : @param $seedCount seed count to set
 :)
-declare updating function page:house-setSeedCount($document, $houseIndex, $seedCount) {
+declare %updating function page:house-setSeedCount($document, $houseIndex, $seedCount) {
     let $playerIndex := page:house-getPlayerIndexByHouseIndex($houseIndex)
     let $houseInPlayerNodeIndex := page:house-getHouseInPlayerNodeIndexByHouseIndex($houseIndex)
 
@@ -235,7 +379,7 @@ declare function page:kalah-getSeedCount($document, $kalahIndex) {
 : @param $document XML document
 : @param $kalahIndex index of kalah which seed count to increase
 :)
-declare updating function page:kalah-increaseSeedCount($document, $kalahIndex) {
+declare %updating function page:kalah-increaseSeedCount($document, $kalahIndex) {
     page:kalah-setSeedCount($document, $kalahIndex, page:kalah-getSeedCount($document, $kalahIndex) + 1)
 };
 
@@ -247,7 +391,7 @@ declare updating function page:kalah-increaseSeedCount($document, $kalahIndex) {
 : @param $document XML document
 : @param $kalahIndex index of kalah which seed count to reset
 :)
-declare updating function page:kalah-resetSeedCount($document, $kalahIndex) {
+declare %updating function page:kalah-resetSeedCount($document, $kalahIndex) {
     page:kalah-setSeedCount($document, $kalahIndex, 0)
 };
 
@@ -260,7 +404,7 @@ declare updating function page:kalah-resetSeedCount($document, $kalahIndex) {
 : @param $kalahIndex index of kalah which seed count to set
 : @param $seedCount seed count to set
 :)
-declare updating function page:kalah-setSeedCount($document, $kalahIndex, $seedCount) {
+declare %updating function page:kalah-setSeedCount($document, $kalahIndex, $seedCount) {
     replace value of node $document/MancalaGame/Player[$kalahIndex]/PlayersHalf/Kalah/SeedCount with $seedCount
 };
 
@@ -345,7 +489,7 @@ declare function page:getPlayerOnTurn($document) {
 : @param $seedsToMove amount of seeds to move
 : @param $houseToUpdate index of the house to update
 :)
-declare updating function page:updateHouseAfterMovingSeeds($document, $houseIndexStartMove, $seedsToMove, $houseToUpdate) {
+declare %updating function page:updateHouseAfterMovingSeeds($document, $houseIndexStartMove, $seedsToMove, $houseToUpdate) {
     let $fullLaps := xs:integer($seedsToMove div 14)
     let $finalPosition := $houseIndexStartMove + $seedsToMove
     
@@ -374,7 +518,7 @@ declare updating function page:updateHouseAfterMovingSeeds($document, $houseInde
 : @param $seedsToMove amount of seeds to move
 : @param $kalahToUpdate index of the kalah to update
 :)
-declare updating function page:updateKalahAfterMovingSeeds($document, $houseIndexStartMove, $seedsToMove, $kalahToUpdate) {
+declare %updating function page:updateKalahAfterMovingSeeds($document, $houseIndexStartMove, $seedsToMove, $kalahToUpdate) {
     let $fullLaps := xs:integer($seedsToMove div 14)
     let $finalPosition := $houseIndexStartMove + $seedsToMove
     
@@ -395,7 +539,7 @@ declare updating function page:updateKalahAfterMovingSeeds($document, $houseInde
 : @param $houseIndex index of the house to start the move on
 : @param $seedsToMove amount of seeds to move
 :)
-declare updating function page:moveSeeds($document, $houseIndex, $seedsToMove) {
+declare %updating function page:moveSeeds($document, $houseIndex, $seedsToMove) {
     let $fullLaps := xs:integer($seedsToMove div 14)
     let $finalPosition := $houseIndex + $seedsToMove
     
@@ -428,7 +572,7 @@ declare updating function page:moveSeeds($document, $houseIndex, $seedsToMove) {
 : @param $document XML document
 : @param $houseIndex index of the house to start the move on
 :)
-declare updating function page:makeMove($document, $houseIndex) {
+declare %updating function page:makeMove($document, $houseIndex) {
     let $startSeedCount := page:house-getSeedCount($document, $houseIndex)
     
     return (
@@ -450,7 +594,7 @@ declare updating function page:makeMove($document, $houseIndex) {
 :
 : @param $player player node which win count should be set to zero
 :)
-declare updating function page:resetPlayersWinCount($player) {
+declare %updating function page:resetPlayersWinCount($player) {
     replace value of node $player/WinCount with 0
 };
 
@@ -461,7 +605,11 @@ declare updating function page:resetPlayersWinCount($player) {
 :
 : @param $document XML document
 :)
-declare updating function page:resetGame($document) {
+declare %updating 
+%rest:path("/test")
+  %rest:PUT
+function page:resetGame() {
+let $document := fn:doc("static/Game States/Game State 1.xml")
     for $player in $document/MancalaGame/Player
     
     return (
@@ -479,7 +627,7 @@ declare updating function page:resetGame($document) {
 : @param $document XML document
 : @param $playerIndex index of player which houses' seeds counts to reset
 :)
-declare updating function page:resetSeedCountsOfPlayer($document, $playerIndex) {
+declare %updating function page:resetSeedCountsOfPlayer($document, $playerIndex) {
     let $offset := ($playerIndex - 1) * 6
     
     return (
@@ -499,7 +647,7 @@ declare updating function page:resetSeedCountsOfPlayer($document, $playerIndex) 
 :
 : @param $document XML document
 :)
-declare updating function page:switchPlayerOnTurn($document) {
+declare %updating function page:switchPlayerOnTurn($document) {
     let $firstPlayerName := page:player-getName($document, 1)
     let $secondPlayerName := page:player-getName($document, 2)
     let $playerOnTurn := page:getPlayerOnTurn($document)

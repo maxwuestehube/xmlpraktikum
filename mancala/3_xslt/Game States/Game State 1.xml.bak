@@ -2,56 +2,56 @@
 <MancalaGame>
     <Player>
         <Name>Player1</Name>
-        <WinCount>3</WinCount>
+        <WinCount>0</WinCount>
         <PlayersHalf>
             <Kalah>
-                <SeedCount>10</SeedCount>
+                <SeedCount>0</SeedCount>
             </Kalah>
             <House>
-                <SeedCount>2</SeedCount>
+                <SeedCount>0</SeedCount>
             </House>
             <House>
-                <SeedCount>3</SeedCount>
+                <SeedCount>0</SeedCount>
             </House>
             <House>
-                <SeedCount>4</SeedCount>
+                <SeedCount>0</SeedCount>
             </House>
             <House>
-                <SeedCount>1</SeedCount>
+                <SeedCount>0</SeedCount>
             </House>
             <House>
-                <SeedCount>6</SeedCount>
+                <SeedCount>0</SeedCount>
             </House>
             <House>
-                <SeedCount>8</SeedCount>
+                <SeedCount>0</SeedCount>
             </House>
         </PlayersHalf>
         <SeedCount>2</SeedCount>
     </Player>
     <Player>
         <Name>Player2</Name>
-        <WinCount>6</WinCount>
+        <WinCount>0</WinCount>
         <PlayersHalf>
             <Kalah>
-                <SeedCount>8</SeedCount>
+                <SeedCount>0</SeedCount>
             </Kalah>
             <House>
-                <SeedCount>8</SeedCount>
+                <SeedCount>0</SeedCount>
             </House>
             <House>
-                <SeedCount>10</SeedCount>
+                <SeedCount>0</SeedCount>
             </House>
             <House>
-                <SeedCount>4</SeedCount>
+                <SeedCount>0</SeedCount>
             </House>
             <House>
-                <SeedCount>1</SeedCount>
+                <SeedCount>0</SeedCount>
             </House>
             <House>
-                <SeedCount>3</SeedCount>
+                <SeedCount>0</SeedCount>
             </House>
             <House>
-                <SeedCount>1</SeedCount>
+                <SeedCount>0</SeedCount>
             </House>
         </PlayersHalf>
         <SeedCount>1</SeedCount>
