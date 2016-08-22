@@ -4,22 +4,23 @@
  :)
 module namespace page = 'http://basex.org/modules/web-page';
 
+declare namespace db = 'http://basex.org/modules/db';
+
 declare namespace house = "house";
 declare namespace kalah = "kalah";
 declare namespace mancalaGame = "mancalaGame";
 declare namespace player = "player";
 
-declare option db:writeback 'true';
+declare variable $ page:testvar := 5;
+
+declare variable $ page:testvar2 := fn:doc("static/Game States/Game State 1.xml");
+
 (:~
  : This function generates the welcome page.
  : @return HTML page
  :)
 declare 
   %rest:path("")
-  %output:method("xhtml")
-  %output:omit-xml-declaration("no")
-  %output:doctype-public("-//W3C//DTD XHTML 1.0 Transitional//EN")
-  %output:doctype-system("http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd")
   function page:start()
   as element(Q{http://www.w3.org/1999/xhtml}html)
 {
@@ -83,22 +84,29 @@ declare
 {
 
    let $document := fn:doc("static/Game States/Game State 1.xml")
-   (:return page:svg($document):)
-   return page:replaceTest()
+   (:return page:resetGame():)
+ 
+     (:page:svg($page:testvar2):)
+   return page:replaceTest() 
   
 
 };
 
 declare function page:replaceTest(){
- let $document := fn:doc("static/Game States/Game State 1.xml")
- let $test := %updating function($document){replace value of node $document/MancalaGame/Player[1]/WinCount with $document/MancalaGame/Player[1]/WinCount +1}
- return page:svg($document update(updating $test(.)))
+ let $document := fn:doc("webapp/Game State 1.xml")
+ let $test := %updating function($document){replace value of node $document/MancalaGame/Player[1]/WinCount with ($document/MancalaGame/Player[1]/WinCount+1)}
+ let $y := file:write-text("webapp/Game State 1.xml", $document update(updating $test(.)))
+ return page:svg(fn:doc("webapp/Game State 1.xml"))
 };
 
-declare 
+declare
 function page:svg($document){
-let $seedCount := $document/MancalaGame/Player[1]/PlayersHalf/Kalah/SeedCount/text()
-let $winCount1 := $document/MancalaGame/Player[1]/WinCount/text() 
+    let $seedCount := $document/MancalaGame/Player[1]/PlayersHalf/Kalah/SeedCount/text()
+
+
+    let $page:testvar := $page:testvar +1
+    let $winCount1 := $page:testvar (: $document/MancalaGame/Player[1]/WinCount/text()    :)
+ 
     return 
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -596,6 +604,7 @@ declare %updating function page:makeMove($document, $houseIndex) {
 :)
 declare %updating function page:resetPlayersWinCount($player) {
     replace value of node $player/WinCount with 0
+
 };
 
 
@@ -605,7 +614,8 @@ declare %updating function page:resetPlayersWinCount($player) {
 :
 : @param $document XML document
 :)
-declare %updating 
+declare  
+%updating
 %rest:path("/test")
   %rest:PUT
 function page:resetGame() {
@@ -613,9 +623,9 @@ let $document := fn:doc("static/Game States/Game State 1.xml")
     for $player in $document/MancalaGame/Player
     
     return (
-        page:resetPlayersWinCount($player),
+        page:resetPlayersWinCount($player) , 
         page:kalah-resetSeedCount($document, page:player-getIndexByName($document, $player/Name)),
-        page:resetSeedCountsOfPlayer($document, page:player-getIndexByName($document, $player/Name))
+        page:resetSeedCountsOfPlayer($document, page:player-getIndexByName($document, $player/Name))         
     )
 };
 
