@@ -94,8 +94,9 @@ declare
 
 declare function page:replaceTest(){
  let $document := fn:doc("webapp/Game State 1.xml")
- let $test := %updating function($document){replace value of node $document/MancalaGame/Player[1]/WinCount with ($document/MancalaGame/Player[1]/WinCount+1)}
- let $y := file:write-text("webapp/Game State 1.xml", $document update(updating $test(.)))
+ let $test := %updating function($document){replace value of node $document/MancalaGame/Player[1]/PlayersHalf/Kalah/SeedCount with ($document/MancalaGame/Player[1]/PlayersHalf/Kalah/SeedCount+1)}
+ let $x := file:write-text-lines("webapp/Game State 1.xml", "")
+ let $y := file:append("webapp/Game State 1.xml", $document update(updating $test(.)))
  return page:svg(fn:doc("webapp/Game State 1.xml"))
 };
 
