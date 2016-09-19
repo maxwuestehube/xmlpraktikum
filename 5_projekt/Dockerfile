@@ -1,0 +1,1 @@
+FROM basex/basexhttp:latest

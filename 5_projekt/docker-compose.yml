@@ -1,0 +1,11 @@
+version: '2'
+services:
+  basexhttp:
+    build: .
+    ports:
+      - "1984:1984"
+      - "8984:8984"
+    volumes:
+      - ./web:/srv/BaseXWeb
+      - ./modules:/srv/BaseXModule
+      - .basex:/srv/.basex
