@@ -7,5 +7,4 @@ services:
       - "8984:8984"
     volumes:
       - ./web:/srv/BaseXWeb
-      - ./modules:/srv/BaseXModule
       - .basex:/srv/.basex
